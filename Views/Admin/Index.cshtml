@@ -1,0 +1,31 @@
+﻿@using SignalRDemo.Models
+@model Article
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Publish Article</h1>
+
+@using (Html.BeginForm("Index", "Admin", FormMethod.Post, new { id = "Article" }))
+{
+    <div class="row">
+        <div class="col-12">
+            Heading
+        </div>
+        <div class="col-12">
+            @Html.TextBoxFor(model => Model.Heading, new { @class="form-control", @maxlength = "50" })
+        </div>
+    </div>
+
+    <div class="row mt-2">
+        <div class="col-12">
+            Content
+        </div>
+        <div class="col-12">
+            @Html.TextAreaFor(model => Model.Content, new { @class="form-control", @maxlength = "100", @rows="5" })
+        </div>
+    </div>
+
+    <div>
+        <button class="btn btn-primary mt-5" type="submit">Send to All</button>
+    </div>
+}
